@@ -54,12 +54,12 @@ public class User {
     }
 
     public void setUsername(String username) {
-        // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'setUsername'");
     }
 
     public String getUsername() {
-        // TODO Auto-generated method stub
+
         throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
     }
 }
