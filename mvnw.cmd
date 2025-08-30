@@ -1,4 +1,4 @@
-<# : batch portion
+ <# : batch portion
 @REM ----------------------------------------------------------------------------
 @REM Licensed to the Apache Software Foundation (ASF) under one
 @REM or more contributor license agreements.  See the NOTICE file
@@ -32,15 +32,15 @@
 @SET __MVNW_ERROR__=
 @SET __MVNW_PSMODULEP_SAVE=%PSModulePath%
 @SET PSModulePath=
-@FOR /F "usebackq tokens=1* delims==" %%A IN (`powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}"`) DO @(
-  IF "%%A"=="MVN_CMD" (set __MVNW_CMD__=%%B) ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
+@FOR /F "usebackq tokens=1* delims==" %%A IN (powershell -noprofile "& {$scriptDir='%~dp0'; $script='%__MVNW_ARG0_NAME__%'; icm -ScriptBlock ([Scriptblock]::Create((Get-Content -Raw '%~f0'))) -NoNewScope}") DO @(
+  IF "%%A"=="MVN_CMD" (set "__MVNW_CMD__=%%B") ELSE IF "%%B"=="" (echo %%A) ELSE (echo %%A=%%B)
 )
 @SET PSModulePath=%__MVNW_PSMODULEP_SAVE%
 @SET __MVNW_PSMODULEP_SAVE=
 @SET __MVNW_ARG0_NAME__=
 @SET MVNW_USERNAME=
 @SET MVNW_PASSWORD=
-@IF NOT "%__MVNW_CMD__%"=="" (%__MVNW_CMD__% %*)
+@IF NOT "%__MVNW_CMD__%"=="" ("%__MVNW_CMD__%" %*)
 @echo Cannot start maven from wrapper >&2 && exit /b 1
 @GOTO :EOF
 : end batch / begin powershell #>
@@ -124,7 +124,7 @@ $webclient.DownloadFile($distributionUrl, "$TMP_DOWNLOAD_DIR/$distributionUrlNam
 $distributionSha256Sum = (Get-Content -Raw "$scriptDir/.mvn/wrapper/maven-wrapper.properties" | ConvertFrom-StringData).distributionSha256Sum
 if ($distributionSha256Sum) {
   if ($USE_MVND) {
-    Write-Error "Checksum validation is not supported for maven-mvnd. `nPlease disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties."
+    Write-Error "Checksum validation is not supported for maven-mvnd. nPlease disable validation by removing 'distributionSha256Sum' from your maven-wrapper.properties."
   }
   Import-Module $PSHOME\Modules\Microsoft.PowerShell.Utility -Function Get-FileHash
   if ((Get-FileHash "$TMP_DOWNLOAD_DIR/$distributionUrlName" -Algorithm SHA256).Hash.ToLower() -ne $distributionSha256Sum) {
