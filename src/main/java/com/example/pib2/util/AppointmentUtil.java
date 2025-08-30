@@ -1,5 +1,5 @@
 package com.example.pib2.util;
 
-public class MapperUtil {
-    
+public class AppointmentUtil {
+
 }
