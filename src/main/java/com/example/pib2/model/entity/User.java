@@ -54,12 +54,12 @@ public class User {
     }
 
     public void setUsername(String username) {
-
+        // Lógica para establecer el nombre de usuario
         throw new UnsupportedOperationException("Unimplemented method 'setUsername'");
     }
 
     public String getUsername() {
-
+        // Lógica para obtener el nombre de usuario
         throw new UnsupportedOperationException("Unimplemented method 'getUsername'");
     }
 }
