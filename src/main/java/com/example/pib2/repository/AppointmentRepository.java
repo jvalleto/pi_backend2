@@ -1,9 +1,12 @@
 package com.example.pib2.repository;
 
-import com.example.pib2.model.entity.Servicio;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.example.pib2.models.entity.Appointment;
+
 @Repository
-public interface ServicioRepository extends JpaRepository<Servicio, Long> {
+public interface AppointmentRepository extends JpaRepository<Appointment, Long> {
 }
+

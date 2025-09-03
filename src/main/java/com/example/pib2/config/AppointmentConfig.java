@@ -1,5 +1,5 @@
 package com.example.pib2.config;
 
-public class SwaggerConfig {
-    
+public class AppointmentConfig {
+
 }
